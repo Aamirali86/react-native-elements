@@ -53,7 +53,7 @@ class Button extends Component {
       disabledTitleStyle,
       raised,
       linearGradientProps,
-      ViewComponent = linearGradientProps && global.Expo
+      ViewComponent = !disabled && linearGradientProps && global.Expo
         ? global.Expo.LinearGradient
         : View,
       ...attributes
@@ -89,7 +89,6 @@ class Button extends Component {
               disabled && styles.disabled,
               disabled && disabledStyle,
               clear && { backgroundColor: 'transparent', elevation: 0 },
-              linearGradientProps && { backgroundColor: 'transparent' },
             ]}
           >
             {loading && (
